@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN geographiclib-get-geoids egm96-5 && \
     geographiclib-get-gravity egm96
 
+# Cyclone DDSのインストール（ただし使わない）
 RUN apt-get update && apt-get install -y \
     ros-humble-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
@@ -24,5 +25,3 @@ RUN chmod +x /entrypoint.sh
 
 #MAVROS起動
 ENTRYPOINT ["/entrypoint.sh"]
-
-#CMD ["/bin/bash"]
